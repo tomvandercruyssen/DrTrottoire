@@ -1,0 +1,383 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DrTrottoirApi</name>
+    </assembly>
+    <members>
+        <member name="M:DrTrottoirApi.Controllers.CompaniesController.Get">
+            <summary>
+            Get all companies out of the database. Authorized for: Admin, SuperStudent
+            </summary>
+            <returns>Companies objects</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.CompaniesController.Get(System.Guid)">
+            <summary>
+            Gets a specific company. Authorized for: Admin, SuperStudent
+            </summary>
+            <param name="id"></param>
+            <returns>Company</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.CompaniesController.Post(DrTrottoirApi.Models.CreateCompanyRequest)">
+            <summary>
+            Creates a company. Authorized for: Admin
+            </summary>
+            <param name="company"></param>
+            <returns>ActionResult: Creating the company succeeded or not and the company id</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.CompaniesController.Put(System.Guid,DrTrottoirApi.Models.CreateCompanyRequest)">
+            <summary>
+            Update an existing company. Authorized for: Admin
+            </summary>
+            <param name="id"></param>
+            <param name="company"></param>
+            <returns>Ok status</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.CompaniesController.Delete(System.Guid)">
+            <summary>
+            Delete a company out of the database. Authorized for: Admin
+            </summary>
+            <param name="id"></param>
+            <returns>Ok status</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.CompaniesController.GetCoordinates(System.Guid)">
+            <summary>
+            Gets the coordinates of a company. Authorized for: Admin, SuperStudent
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.FilesController.PostTaskImage(DrTrottoirApi.Models.UploadTaskImageRequest)">
+            <summary>
+            Upload an Image for a specific task. Authorized for: Student, SuperStudent, Admin
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.FilesController.PostCompanyImage(DrTrottoirApi.Models.UploadCompanyImageRequest)">
+            <summary>
+            Upload an Image for a company. Authorized for: Admin
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.FilesController.DeleteCompanyImage(System.Guid)">
+            <summary>
+            Deletes the appearance Image of the company. Authorized for: Admin
+            </summary>
+            <param name="companyId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.FilesController.PostCompanyManual(DrTrottoirApi.Models.UploadCompanyManualRequest)">
+            <summary>
+            Adds the Manual of the company. Authorized for: Admin
+            </summary>
+            <param name="companyId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.GarbageCollectionsController.Post(DrTrottoirApi.Models.CreateGarbageCollectionRequest)">
+            <summary>
+            Create a new GarbageCollection for a company. Authorized for: Admin
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.GarbageCollectionsController.Delete(DrTrottoirApi.Models.DeleteGarbageCollectionRequest)">
+            <summary>
+            Delete a GarbageCollection for a company. Authorized for: Admin
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.GarbageCollectionsController.GetForWeek(DrTrottoirApi.Models.GetGarbageCollectionRequest)">
+            <summary>
+            Gets all the garbageCollections for that week, for the given company. Authorized for: Admin, SuperStudent
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.GarbageCollectionsController.GetForTimeSlot(DrTrottoirApi.Models.GetGarbageCollectionRequest)">
+            <summary>
+            Gets the garbageTypes for a certain garbageCollection in a timeSlot. Authorized for: Admin, SuperStudent
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.GarbageTypesController.Get">
+            <summary>
+            Gets All Garbage types.  Authorized For: Admin
+            </summary>
+            <returns>A list of garbageTypes</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.GarbageTypesController.Post(DrTrottoirApi.Models.CreateGarbageTypeRequest)">
+            <summary>
+            Create a garbageType (ex: PMD, REST, ...). Authorized For: Admin
+            </summary>
+            <param name="request">Holds the Name of the garbageType to create</param>
+            <returns>ActionResult: Creating the garbageType succeeded or not</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.RoundsController.Get">
+            <summary>
+            Get all rounds out of the database. Authorized for: Admin, SuperStudent
+            </summary>
+            <returns>Round objects</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.RoundsController.Get(System.Guid)">
+            <summary>
+            Gets a round with minimal info filtered by id. Authorized for: Admin, SuperStudent
+            </summary>
+            <param name="id"></param>
+            <returns>BaseUserResponse</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.RoundsController.Post(DrTrottoirApi.Models.CreateRoundRequest)">
+            <summary>
+            Creates a round. Authorized for: Admin
+            </summary>
+            <param name="round"></param>
+            <returns>Ok status</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.RoundsController.Put(System.Guid,DrTrottoirApi.Entities.Round)">
+            <summary>
+            Update an existing round. Authorized for: Admin
+            </summary>
+            <param name="round"></param>
+            <returns>Ok status</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.RoundsController.GetRoundProgress(System.Guid)">
+            <summary>
+            Gets the percentage of the finished tasks of the round.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.RoundsController.GetByRound(System.Guid)">
+            <summary>
+            Gets all companies inside a round. Authorized for: Admin, SuperStudent
+            </summary>
+            <param name="roundId"></param>
+            <returns>List of companies</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.RoundsController.GetRemarksOfRound(System.Guid)">
+            <summary>
+            Gets all the remarks written in the round. Authorized for: Admin, SuperStudent
+            </summary>
+            <param name="id"></param>
+            <returns>A List of remarks and companies</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.RoundsController.GetTasksForRound(System.Guid)">
+            <summary>
+            Gets the tasks for a round (for rounds page). Authorized for: Admin, SuperStudent
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.RoundsController.StartRound(System.Guid)">
+            <summary>
+            Starts a round. Authorized for: SuperStudent, Student
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.RoundsController.Delete(System.Guid)">
+            <summary>
+            Delete a round out of the database. Authorized for: Admin
+            </summary>
+            <param name="id"></param>
+            <returns>Ok status</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.SyndicsController.Get">
+            <summary>
+            Gets all syndics. Authorized for: Admin, SuperStudent.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.SyndicsController.Get(System.Guid)">
+            <summary>
+            Gets a syndic by id. Authorized for: Admin, Superstudent.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.SyndicsController.Post(DrTrottoirApi.Models.CreateSyndicRequest)">
+            <summary>
+            Creates a syndic. Authorized for: Admin.
+            </summary>
+            <param name="syndic"></param>
+            <returns>ActionResult: Creating the syndic succeeded or not and returns the syndic id</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.SyndicsController.Delete(System.Guid)">
+            <summary>
+            Deletes a syndic. Authorized for: Admin.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.SyndicsController.Put(System.Guid,DrTrottoirApi.Models.CreateSyndicRequest)">
+            <summary>
+            Updates a syndic. Authorized for: Admin.
+            </summary>
+            <param name="id"></param>
+            <param name="syndic"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.TasksController.Get">
+            <summary>
+            Get all tasks out of the database. Authorized for: Admin, SuperStudent
+            </summary>
+            <returns>Tasks objects</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.TasksController.Get(System.Guid)">
+            <summary>
+            Gets a specific task. Authorized for: Admin, SuperStudent, Student
+            </summary>
+            <param name="id"></param>
+            <returns>Task</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.TasksController.Post(DrTrottoirApi.Models.CreateTaskRequest)">
+            <summary>
+            Creates a task. Authorized for: Admin
+            </summary>
+            <param name="task"></param>
+            <returns>ActionResult: Creating the task succeeded or not and returns the task id</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.TasksController.Put(System.Guid,DrTrottoirApi.Models.CreateTaskRequest)">
+            <summary>
+            Update an existing task. Authorized for: Admin
+            </summary>
+            <param name="id"></param>
+            <param name="task"></param>
+            <returns>Ok status</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.TasksController.CompleteTask(System.Guid)">
+            <summary>
+            Complete a task. Authorized for: SuperStudent, Student
+            </summary>
+            <param name="id"></param>
+            <returns>Ok status</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.TasksController.Delete(System.Guid)">
+            <summary>
+            Delete a task out of the database. Authorized for: Admin
+            </summary>
+            <param name="id"></param>
+            <returns>Ok status</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.UsersController.Authenticate(DrTrottoirApi.Models.AuthenticateRequest)">
+            <summary>
+            Authenticates a user with login credentials. Authorized for: All
+            </summary>
+            <param name="authenticateRequest"></param>
+            <returns>AuthenticateResponse with minimal User info included</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.UsersController.RenewToken">
+            <summary>
+            Renews the token of the user for a longer session. Authorized for: All
+            </summary>
+            <returns>AuthenticateResponse with minimal User info included</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.UsersController.DeactivateToken(DrTrottoirApi.Models.DeactivateTokenRequest)">
+            <summary>
+            Deactive a token so user can no longer have acces. Authorized for: All
+            </summary>
+            <param name="deactivateTokenRequest"></param>
+            <returns>Returns ActionResult if the action was handled correctly</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.UsersController.Post(DrTrottoirApi.Models.CreateUserRequest)">
+            <summary>
+            Creates a user. Authorized for: Admin
+            </summary>
+            <param name="user"></param>
+            <returns>ActionResult: Creating the user succeeded or not and the id of the created user</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.UsersController.Get">
+            <summary>
+            Get all users with minimal info. Authorized for: Admin, SuperStudent
+            </summary>
+            <returns>A List of BaseUserResponses</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.UsersController.Get(System.Guid)">
+            <summary>
+            Gets a user with minimal info. Authorized for: Admin, SuperStudent
+            </summary>
+            <param name="id"></param>
+            <returns>BaseUserResponse</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.UsersController.Delete(System.Guid)">
+            <summary>
+            Deletes a user with a given id. Authorized for: Admin
+            </summary>
+            <param name="id"></param>
+            <returns>ActionResult: Deleting the user succeeded or not</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.UsersController.Put(System.Guid,DrTrottoirApi.Models.BaseUserRequest)">
+            <summary>
+            Update a user. Authorized for: Admin
+            </summary>
+            <param name="id"></param>
+            <param name="user"></param>
+            <returns>ActionResult: Updating the user succeeded or not</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.UsersController.GetTimeRecordsOfStudent(System.Guid)">
+            <summary>
+            Gets an average time of the student per round. Authorized for: Admin, SuperStudent
+            </summary>
+            <param name="id"></param>
+            <returns>List of Rounds with their timeRecords from the user</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.UsersController.GetRoundsByUser(System.Guid)">
+            <summary>
+            Gets all rounds of a user in the current week. Authorized for: Admin, SuperStudent, Student
+            </summary>
+            <param name="userid"></param>
+            <returns>BaseUserResponse</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.UsersController.GetUsersByRole(DrTrottoirApi.Entities.Roles)">
+            <summary>
+            Gets all users for a certain role. Authorized for: Admin, SuperStudent
+            </summary>
+            <param name="role"></param>
+            <returns>Gets the user by role</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.WorkAreasController.Get">
+            <summary>
+            Gets all the workAreas. Authorized for: Admin, SuperStudent
+            </summary>
+            <returns>A List of workAreas</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.WorkAreasController.Get(System.Guid)">
+            <summary>
+            Gets the workArea by id. Authorized for: Admin, SuperStudent
+            </summary>
+            <param name="id"></param>
+            <returns>The workArea</returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.WorkAreasController.Post(DrTrottoirApi.Models.CreateWorkAreaRequest)">
+            <summary>
+            Creates a workArea. Authorized for: Admin
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.WorkAreasController.Delete(System.Guid)">
+            <summary>
+            Deletes a workArea. Authorized for: Admin
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.WorkAreasController.Put(System.Guid,DrTrottoirApi.Models.CreateWorkAreaRequest)">
+            <summary>
+            Updates a workArea. Authorized for: Admin
+            </summary>
+            <param name="id"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DrTrottoirApi.Controllers.WorkAreasController.GetByWorkArea(System.Guid)">
+            <summary>
+            Returns the users for a certain workArea. Authorized for: Admin, SuperStudent
+            </summary>
+            <param name="id"></param>
+            <returns>A List of users in the same workArea</returns>
+        </member>
+    </members>
+</doc>
